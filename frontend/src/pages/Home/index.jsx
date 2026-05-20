@@ -1,28 +1,58 @@
-import { Navbar } from "../../components/Navbar";
-import { Sidebar } from "../../components/Sidebar";
+import { useEffect, useState } from "react";
+import { Layout } from "../../components/Layout";
+import { NoteCard } from "../../components/NoteCard";
+import { NoteForm } from "../../components/NoteForm";
 
 export const Home = () => {
+  const [notes, setNotes] = useState(() => {
+    const savedNotes =
+      localStorage.getItem("jotspace-notes");
+
+    return savedNotes
+      ? JSON.parse(savedNotes)
+      : [
+          {
+            id: 1,
+            title: "React Revision",
+            description:
+              "Revise hooks, props, state management, and React Router concepts.",
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      "jotspace-notes",
+      JSON.stringify(notes)
+    );
+  }, [notes]);
+
+  const addNote = (newNote) => {
+    setNotes((prevNotes) => [
+      newNote,
+      ...prevNotes,
+    ]);
+  };
+
   return (
-    <div className="min-h-screen bg-stone-50">
-      <Navbar />
+    <Layout>
+      <h1 className="text-3xl font-semibold text-stone-800 mb-6">
+        Welcome to{" "}
+        <span className="text-orange-500">
+          JotSpace
+        </span>
+      </h1>
 
-      <div className="flex">
-        <Sidebar />
+      <NoteForm addNote={addNote} />
 
-        <main className="flex-1 p-8">
-          <h1 className="text-3xl font-semibold text-stone-800">
-            Welcome to{" "}
-            <span className="text-orange-500">
-              JotSpace
-            </span>
-          </h1>
-
-          <p className="mt-2 text-stone-600">
-            Capture your thoughts, organize notes,
-            and stay productive.
-          </p>
-        </main>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {notes.map((note) => (
+          <NoteCard
+            key={note.id}
+            note={note}
+          />
+        ))}
       </div>
-    </div>
+    </Layout>
   );
 };

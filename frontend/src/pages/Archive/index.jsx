@@ -1,7 +1,11 @@
+import { Layout } from "../../components/Layout";
+
 export const Archive = () => {
   return (
-    <div>
-      <h1>Archive Page</h1>
-    </div>
+    <Layout>
+      <h1 className="text-3xl font-semibold text-stone-800">
+        Archived Notes
+      </h1>
+    </Layout>
   );
 };
