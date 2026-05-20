@@ -9,11 +9,14 @@ export const NoteForm = ({ addNote }) => {
       return;
     }
 
-    const newNote = {
-      id: Date.now(),
-      title,
-      description,
-    };
+   const newNote = {
+  id: Date.now(),
+  title,
+  description,
+  isPinned: false,
+  isImportant: false,
+  isArchived: false,
+};
 
     addNote(newNote);
 
