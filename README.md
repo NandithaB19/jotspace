@@ -35,7 +35,7 @@ JotSpace/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/JotSpace.git
+git clone https://github.com/NandithaB19/JotSpace.git
 ```
 
 ### Navigate to the Project
