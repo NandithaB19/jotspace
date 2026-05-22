@@ -6,6 +6,8 @@ export const Important = ({
   togglePin,
   toggleImportant,
   toggleArchive,
+  deleteNote,
+  editNote,
 }) => {
   const importantNotes = notes.filter(
     (note) =>
@@ -36,6 +38,8 @@ export const Important = ({
               toggleArchive={
                 toggleArchive
               }
+              deleteNote={deleteNote}
+  editNote={editNote}
             />
           ))}
         </div>

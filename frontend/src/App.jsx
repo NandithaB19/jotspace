@@ -10,7 +10,8 @@ function App() {
       ? JSON.parse(savedNotes)
       : [];
   });
-
+const [editingNote, setEditingNote] =
+    useState(null);
   useEffect(() => {
     localStorage.setItem(
       "jotspace-notes",
@@ -72,6 +73,29 @@ function App() {
     )
   );
 };
+const editNote = (note) => {
+  setEditingNote(note);
+};
+const updateNote = (
+  id,
+  updatedTitle,
+  updatedDescription
+) => {
+  setNotes((prevNotes) =>
+    prevNotes.map((note) =>
+      note.id === id
+        ? {
+            ...note,
+            title: updatedTitle,
+            description:
+              updatedDescription,
+          }
+        : note
+    )
+  );
+
+  setEditingNote(null);
+};
 
   return (
     <AppRoutes
@@ -85,6 +109,9 @@ function App() {
     toggleArchive
   }
   deleteNote={deleteNote}
+  editingNote={editingNote}
+editNote={editNote}
+updateNote={updateNote}
 />
   );
 }

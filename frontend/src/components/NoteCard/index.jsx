@@ -3,6 +3,7 @@ import {
   MdArchive,
   MdStar,
   MdDelete,
+  MdEdit,
 } from "react-icons/md";
 
 export const NoteCard = ({
@@ -11,6 +12,7 @@ export const NoteCard = ({
   toggleImportant,
   toggleArchive,
   deleteNote,
+  editNote,
 }) => {
   return (
     <div className="bg-stone-100 border border-stone-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
@@ -74,6 +76,14 @@ export const NoteCard = ({
         >
           <MdDelete size={22} />
         </button>
+        <button
+  onClick={() =>
+    editNote(note)
+  }
+  className="text-stone-500 hover:text-orange-500 transition"
+>
+  <MdEdit size={22} />
+</button>
       </div>
     </div>
   );

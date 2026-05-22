@@ -9,6 +9,9 @@ export const Home = ({
   toggleImportant,
   toggleArchive,
   deleteNote,
+  editingNote,
+editNote,
+updateNote,
 }) => {
   return (
     <Layout>
@@ -19,7 +22,11 @@ export const Home = ({
         </span>
       </h1>
 
-      <NoteForm addNote={addNote} />
+      <NoteForm
+  addNote={addNote}
+  editingNote={editingNote}
+  updateNote={updateNote}
+/>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {notes
@@ -41,6 +48,7 @@ export const Home = ({
                 toggleArchive
               }
               deleteNote={deleteNote}
+              editNote={editNote}
             />
           ))}
       </div>

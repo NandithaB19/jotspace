@@ -6,6 +6,8 @@ export const Pinned = ({
   togglePin,
   toggleImportant,
   toggleArchive,
+  deleteNote,
+  editNote,
 }) => {
   const pinnedNotes = notes.filter(
     (note) =>
@@ -36,6 +38,8 @@ export const Pinned = ({
               toggleArchive={
                 toggleArchive
               }
+              deleteNote={deleteNote}
+  editNote={editNote}
             />
           ))}
         </div>

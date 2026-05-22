@@ -11,6 +11,9 @@ export const AppRoutes = ({
   toggleImportant,
   toggleArchive,
   deleteNote,
+  editingNote,
+  editNote,
+  updateNote,
 }) => {
   return (
     <Routes>
@@ -28,6 +31,9 @@ export const AppRoutes = ({
               toggleArchive
             }
             deleteNote={deleteNote}
+            editingNote={editingNote}
+editNote={editNote}
+updateNote={updateNote}
           />
         }
       />
@@ -45,6 +51,7 @@ export const AppRoutes = ({
               toggleArchive
             }
             deleteNote={deleteNote}
+      editNote={editNote}
           />
         }
       />
@@ -62,6 +69,7 @@ export const AppRoutes = ({
         toggleArchive
       }
       deleteNote={deleteNote}
+      editNote={editNote}
     />
   }
 />
@@ -79,6 +87,7 @@ export const AppRoutes = ({
         toggleArchive
       }
       deleteNote={deleteNote}
+      editNote={editNote}
     />
   }
 />

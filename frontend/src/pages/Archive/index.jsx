@@ -6,6 +6,8 @@ export const Archive = ({
   togglePin,
   toggleImportant,
   toggleArchive,
+  deleteNote,
+  editNote,
 }) => {
   const archivedNotes = notes.filter(
     (note) => note.isArchived
@@ -34,6 +36,8 @@ export const Archive = ({
               toggleArchive={
                 toggleArchive
               }
+              deleteNote={deleteNote}
+               editNote={editNote}
             />
           ))}
         </div>
