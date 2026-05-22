@@ -1,28 +1,57 @@
-import { Navbar } from "../../components/Navbar";
-import { Sidebar } from "../../components/Sidebar";
+import { Layout } from "../../components/Layout";
+import { NoteCard } from "../../components/NoteCard";
+import { NoteForm } from "../../components/NoteForm";
 
-export const Home = () => {
+export const Home = ({
+  notes,
+  addNote,
+  togglePin,
+  toggleImportant,
+  toggleArchive,
+  deleteNote,
+  editingNote,
+editNote,
+updateNote,
+}) => {
   return (
-    <div className="min-h-screen bg-stone-50">
-      <Navbar />
+    <Layout>
+      <h1 className="text-3xl font-semibold text-stone-800 mb-6">
+        Welcome to{" "}
+        <span className="text-orange-500">
+          JotSpace
+        </span>
+      </h1>
 
-      <div className="flex">
-        <Sidebar />
+      <NoteForm
+  addNote={addNote}
+  editingNote={editingNote}
+  updateNote={updateNote}
+/>
 
-        <main className="flex-1 p-8">
-          <h1 className="text-3xl font-semibold text-stone-800">
-            Welcome to{" "}
-            <span className="text-orange-500">
-              JotSpace
-            </span>
-          </h1>
-
-          <p className="mt-2 text-stone-600">
-            Capture your thoughts, organize notes,
-            and stay productive.
-          </p>
-        </main>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {notes
+          .filter(
+            (note) =>
+              !note.isArchived
+          )
+          .map((note) => (
+            <NoteCard
+              key={note.id}
+              note={note}
+              togglePin={
+                togglePin
+              }
+              toggleImportant={
+                toggleImportant
+              }
+              toggleArchive={
+                toggleArchive
+              }
+              deleteNote={deleteNote}
+              editNote={editNote}
+            />
+          ))}
       </div>
-    </div>
+    </Layout>
   );
 };
