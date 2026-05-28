@@ -1,10 +1,19 @@
 import { Navbar } from "../Navbar";
 import { Sidebar } from "../Sidebar";
 
-export const Layout = ({ children }) => {
+export const Layout = ({
+  children,
+  searchTerm,
+  setSearchTerm,
+}) => {
   return (
     <div className="min-h-screen bg-stone-50">
-      <Navbar />
+      <Navbar
+        searchTerm={searchTerm}
+        setSearchTerm={
+          setSearchTerm
+        }
+      />
 
       <div className="flex">
         <Sidebar />
