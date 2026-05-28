@@ -9,9 +9,11 @@ export const Archive = ({
   deleteNote,
   editNote,
 }) => {
-  const archivedNotes = notes.filter(
-    (note) => note.isArchived
-  );
+  const archivedNotes =
+    notes.filter(
+      (note) =>
+        note.isArchived
+    );
 
   return (
     <Layout>
@@ -19,27 +21,43 @@ export const Archive = ({
         Archived Notes
       </h1>
 
-      {archivedNotes.length === 0 ? (
-        <p className="text-stone-500">
-          No archived notes yet.
-        </p>
+      {archivedNotes.length ===
+      0 ? (
+        <div className="bg-stone-100 border border-stone-200 rounded-2xl p-10 text-center shadow-sm">
+          <h2 className="text-xl font-semibold text-stone-700">
+            No archived notes
+          </h2>
+
+          <p className="text-stone-500 mt-2">
+            Archived notes will
+            appear here.
+          </p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {archivedNotes.map((note) => (
-            <NoteCard
-              key={note.id}
-              note={note}
-              togglePin={togglePin}
-              toggleImportant={
-                toggleImportant
-              }
-              toggleArchive={
-                toggleArchive
-              }
-              deleteNote={deleteNote}
-               editNote={editNote}
-            />
-          ))}
+          {archivedNotes.map(
+            (note) => (
+              <NoteCard
+                key={note.id}
+                note={note}
+                togglePin={
+                  togglePin
+                }
+                toggleImportant={
+                  toggleImportant
+                }
+                toggleArchive={
+                  toggleArchive
+                }
+                deleteNote={
+                  deleteNote
+                }
+                editNote={
+                  editNote
+                }
+              />
+            )
+          )}
         </div>
       )}
     </Layout>

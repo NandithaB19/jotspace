@@ -9,11 +9,12 @@ export const Pinned = ({
   deleteNote,
   editNote,
 }) => {
-  const pinnedNotes = notes.filter(
-    (note) =>
-      note.isPinned &&
-      !note.isArchived
-  );
+  const pinnedNotes =
+    notes.filter(
+      (note) =>
+        note.isPinned &&
+        !note.isArchived
+    );
 
   return (
     <Layout>
@@ -21,27 +22,43 @@ export const Pinned = ({
         Pinned Notes
       </h1>
 
-      {pinnedNotes.length === 0 ? (
-        <p className="text-stone-500">
-          No pinned notes yet.
-        </p>
+      {pinnedNotes.length ===
+      0 ? (
+        <div className="bg-stone-100 border border-stone-200 rounded-2xl p-10 text-center shadow-sm">
+          <h2 className="text-xl font-semibold text-stone-700">
+            No pinned notes
+          </h2>
+
+          <p className="text-stone-500 mt-2">
+            Pin notes for quick
+            access.
+          </p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {pinnedNotes.map((note) => (
-            <NoteCard
-              key={note.id}
-              note={note}
-              togglePin={togglePin}
-              toggleImportant={
-                toggleImportant
-              }
-              toggleArchive={
-                toggleArchive
-              }
-              deleteNote={deleteNote}
-  editNote={editNote}
-            />
-          ))}
+          {pinnedNotes.map(
+            (note) => (
+              <NoteCard
+                key={note.id}
+                note={note}
+                togglePin={
+                  togglePin
+                }
+                toggleImportant={
+                  toggleImportant
+                }
+                toggleArchive={
+                  toggleArchive
+                }
+                deleteNote={
+                  deleteNote
+                }
+                editNote={
+                  editNote
+                }
+              />
+            )
+          )}
         </div>
       )}
     </Layout>

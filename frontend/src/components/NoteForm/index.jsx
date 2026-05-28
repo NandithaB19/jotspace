@@ -51,6 +51,18 @@ export const NoteForm = ({
     setDescription("");
   };
 
+  const handleKeyDown = (
+    e
+  ) => {
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey
+    ) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
   return (
     <div className="bg-stone-100 border border-stone-200 rounded-2xl p-5 shadow-sm mb-8">
       <h2 className="text-xl font-semibold text-stone-800 mb-4">
@@ -65,7 +77,9 @@ export const NoteForm = ({
           placeholder="Enter note title..."
           value={title}
           onChange={(e) =>
-            setTitle(e.target.value)
+            setTitle(
+              e.target.value
+            )
           }
           className="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white outline-none focus:ring-2 focus:ring-orange-400"
         />
@@ -78,6 +92,9 @@ export const NoteForm = ({
             setDescription(
               e.target.value
             )
+          }
+          onKeyDown={
+            handleKeyDown
           }
           className="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white outline-none resize-none focus:ring-2 focus:ring-orange-400"
         />
