@@ -6,7 +6,7 @@ export const Navbar = ({
   setSearchTerm,
 }) => {
   return (
-    <header className="bg-stone-100 border-b border-stone-200 px-8 py-4 shadow-sm">
+    <header className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-200 px-8 py-4 shadow-sm">
       <div className="flex items-center justify-between">
 
         {/* Logo */}
@@ -26,9 +26,9 @@ export const Navbar = ({
         </div>
 
         {/* Search */}
-        <div className="relative w-[320px]">
+        <div className="relative w-[280px]">
           <MdSearch
-            size={22}
+            size={20}
             className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"
           />
 
@@ -41,7 +41,7 @@ export const Navbar = ({
                 e.target.value
               )
             }
-            className="w-full pl-12 pr-4 py-2.5 rounded-xl bg-white border border-stone-300 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all text-stone-700 placeholder:text-stone-400 shadow-sm"
+            className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-white border border-stone-300 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all text-stone-700 placeholder:text-stone-400 shadow-sm"
           />
         </div>
       </div>
