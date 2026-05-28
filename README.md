@@ -8,6 +8,17 @@ A modern and responsive note-taking application built with React for capturing i
 
 Built with a focus on simplicity and performance, JotSpace provides a smooth experience for capturing ideas, reminders, and daily thoughts.
 
+## Features 
+
+- Create, edit, and delete notes 
+- Pin and unpin notes 
+- Mark notes as important 
+- Archive and unarchive notes 
+- Search notes instantly 
+- Persistent storage using LocalStorage 
+- Clean and minimal UI 
+- Toast notifications for actions
+
 ## Tech Stack
 
 - React.js
@@ -20,14 +31,27 @@ Built with a focus on simplicity and performance, JotSpace provides a smooth exp
 
 ```bash
 JotSpace/
-│── public/
-│── src/
-│   ├── components/
-│   ├── assets/
-│   ├── App.jsx
-│   └── main.jsx
-│── package.json
-│── README.md
+│── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── Layout/
+│   │   │   ├── Navbar/
+│   │   │   ├── NoteCard/
+│   │   │   ├── NoteForm/
+│   │   │   └── Sidebar/
+│   │   ├── pages/
+│   │   │   ├── Home/
+│   │   │   ├── Archive/
+│   │   │   ├── Important/
+│   │   │   └── Pinned/
+│   │   ├── routes/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── package.json
+│   └── README.md
 ```
 
 ## Setup
@@ -47,17 +71,14 @@ cd JotSpace
 ### Install Dependencies
 
 ```bash
-npm install
+npm install react-hot-toast
+npm install react-icons
+npm install react-router-dom
+npm install tailwindcss
 ```
 
 ### Start Development Server
 
 ```bash
 npm run dev
-```
-
-The application will run locally at:
-
-```bash
-http://localhost:5173
 ```
